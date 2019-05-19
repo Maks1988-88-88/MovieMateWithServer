@@ -1,7 +1,7 @@
 .MovieCard {
   position: relative;
-  -ms-flex: 0 0 29%;
-  flex: 0 0 29%;
+  -ms-flex: 0 0 21%;
+  flex: 0 0 21%;
   margin-right: 2%;
   padding: 8px;
   margin-bottom: 16px;
@@ -64,7 +64,7 @@
 
 .MovieInfo__descr {
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.3;
 }
 
@@ -96,5 +96,5 @@
 
 .MovieInfo__release {
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 13px;
 }
