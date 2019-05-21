@@ -1,13 +1,13 @@
 {
-  "main.css": "/ReactMovie/build/static/css/main.790ceba0.chunk.css",
-  "main.js": "/ReactMovie/build/static/js/main.2b4f7d40.chunk.js",
-  "main.js.map": "/ReactMovie/build/static/js/main.2b4f7d40.chunk.js.map",
-  "static/js/1.0b4a71fa.chunk.js": "/ReactMovie/build/static/js/1.0b4a71fa.chunk.js",
-  "static/js/1.0b4a71fa.chunk.js.map": "/ReactMovie/build/static/js/1.0b4a71fa.chunk.js.map",
-  "runtime~main.js": "/ReactMovie/build/static/js/runtime~main.4b48e213.js",
-  "runtime~main.js.map": "/ReactMovie/build/static/js/runtime~main.4b48e213.js.map",
-  "static/css/main.790ceba0.chunk.css.map": "/ReactMovie/build/static/css/main.790ceba0.chunk.css.map",
-  "index.html": "/ReactMovie/build/index.html",
-  "precache-manifest.787c8dd361106ecb2f651528f963f8e9.js": "/ReactMovie/build/precache-manifest.787c8dd361106ecb2f651528f963f8e9.js",
-  "service-worker.js": "/ReactMovie/build/service-worker.js"
+  "main.css": "/MovieMateWithServer/build/static/css/main.790ceba0.chunk.css",
+  "main.js": "/MovieMateWithServer/build/static/js/main.d1828a35.chunk.js",
+  "main.js.map": "/MovieMateWithServer/build/static/js/main.d1828a35.chunk.js.map",
+  "static/js/1.0b4a71fa.chunk.js": "/MovieMateWithServer/build/static/js/1.0b4a71fa.chunk.js",
+  "static/js/1.0b4a71fa.chunk.js.map": "/MovieMateWithServer/build/static/js/1.0b4a71fa.chunk.js.map",
+  "runtime~main.js": "/MovieMateWithServer/build/static/js/runtime~main.9110377c.js",
+  "runtime~main.js.map": "/MovieMateWithServer/build/static/js/runtime~main.9110377c.js.map",
+  "static/css/main.790ceba0.chunk.css.map": "/MovieMateWithServer/build/static/css/main.790ceba0.chunk.css.map",
+  "index.html": "/MovieMateWithServer/build/index.html",
+  "precache-manifest.fc47b2713bfa242193a3ad49c998319e.js": "/MovieMateWithServer/build/precache-manifest.fc47b2713bfa242193a3ad49c998319e.js",
+  "service-worker.js": "/MovieMateWithServer/build/service-worker.js"
 }
