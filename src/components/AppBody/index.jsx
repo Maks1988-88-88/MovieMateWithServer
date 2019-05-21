@@ -1,6 +1,6 @@
 import React from "react";
 // import v4 from "uuid/v4";
-import posts from "../../posts";
+// import posts from "../../posts";
 import "./style.css";
 import MovieCard from "../MovieCard";
 import MovieCardCollection from "../MovieCardCollection";
@@ -8,30 +8,13 @@ import AppSidebar from "../AppSidebar";
 
 class AppBody extends React.Component {
   state = {
-    post: [...posts]
+    post: []
   };
 
-  // onAddNewPost = (tittle, descr, rating) => {
-  //   const newPost = {
-  //     id: v4(),
-  //     chipsList: [],
-  //     descr: descr,
-  //     rating: rating,
-  //     tittle: tittle
-  //   };
-  //   console.log(newPost);
-  //   this.setState({
-  //     post: [...this.state.post, newPost]
-  //   });
-  // };
-
-  componentWillMount() {
-    fetch("https://api.themoviedb.org/3/search/movie?api_key=680d1c453082be4c031bb516ed6208df&page=1&query=1&include_adult=false", {
-      headers: new Headers({
-        Authorization:
-          "563492ad6f91700001000001972aa481984848e1a57e5f8fa48c679d"
-      })
-    })
+  SearchCategories__btn = query => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${query}?api_key=680d1c453082be4c031bb516ed6208df&page=1&query=1&include_adult=false`
+    )
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -46,17 +29,69 @@ class AppBody extends React.Component {
           tittle: film.title,
           rating: film.vote_average,
           poster_path:
-            "https://image.tmdb.org/t/p/w300_and_h450_bestv2" +
-            film.poster_path
+            "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + film.poster_path
         }));
-
-        // console.log(films[0].descr.slice(0, 100) + '...');
-
         this.setState({
           post: films
         });
       })
-      // console.log(data))
+      .catch(err => console.error(err));
+  };
+
+  SearchForm__input = query => {
+    console.log(query);
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=680d1c453082be4c031bb516ed6208df&page=1&query=${query}&include_adult=false`
+    )
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Error" + response.statusText);
+      })
+      .then(data => {
+        const films = data.results.map(film => ({
+          id: film.id,
+          release_date: film.release_date,
+          descr: film.overview.slice(0, 100) + "...",
+          tittle: film.title,
+          rating: film.vote_average,
+          poster_path:
+            "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + film.poster_path
+        }));
+        this.setState({
+          post: films
+        });
+      })
+      .catch(err => console.error(err));
+  };
+
+  componentWillMount() {
+    fetch(
+      "https://api.themoviedb.org/3/search/movie?api_key=680d1c453082be4c031bb516ed6208df&page=1&query=1&include_adult=false"
+    )
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Error" + response.statusText);
+      })
+      .then(data => {
+        
+        const films = data.results.map(film => ({
+          id: film.id,
+          release_date: film.release_date,
+          descr: film.overview.slice(0, 100) + "...",
+          tittle: film.title,
+          rating: film.vote_average,
+          poster_path:
+            "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + film.poster_path
+        }));
+        console.log(films.length);
+        this.setState({
+          post: films
+        });
+      })
       .catch(err => console.error(err));
   }
 
@@ -72,11 +107,19 @@ class AppBody extends React.Component {
   //   .catch (err => console.error(err));
   // }
 
-  // poster: 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + movie.poster_path
- // API Key(v3 auth) 680d1c453082be4c031bb516ed6208df
- // Example API Request https://api.themoviedb.org/3/movie/550?api_key=680d1c453082be4c031bb516ed6208df
-
-
+  // onAddNewPost = (tittle, descr, rating) => {
+  //   const newPost = {
+  //     id: v4(),
+  //     chipsList: [],
+  //     descr: descr,
+  //     rating: rating,
+  //     tittle: tittle
+  //   };
+  //   console.log(newPost);
+  //   this.setState({
+  //     post: [...this.state.post, newPost]
+  //   });
+  // };
 
   onDeleteCard = id => {
     console.log(id);
@@ -85,12 +128,17 @@ class AppBody extends React.Component {
     });
   };
 
+  // SearchSearchForm__input = value => console.log(value);
+
   render() {
     const { post } = this.state;
     return (
       <div className="App__body">
         {/* <MovieForm onFormSubmit={this.onAddNewPost} /> */}
-        <AppSidebar />
+        <AppSidebar
+          Categories__btn={this.SearchCategories__btn}
+          SearchForm__input2={this.SearchForm__input}
+        />
         <MovieCardCollection>
           {post.map(post => (
             <MovieCard

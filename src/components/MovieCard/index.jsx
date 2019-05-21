@@ -33,7 +33,10 @@ class MovieCard extends React.Component {
 MovieCard.propTypes = {
   tittle: PropTypes.string.isRequired,
   descr: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired
+  rating: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+  img: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired
 };
 
 export default MovieCard;
