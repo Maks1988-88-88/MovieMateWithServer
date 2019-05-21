@@ -1,4 +1,4 @@
-https://maks1988-88-88.github.io/ReactMovie/build/ link
+https://maks1988-88-88.github.io/MovieMateWithServer/build/ link
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
