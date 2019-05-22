@@ -1,13 +1,13 @@
 {
-  "main.css": "/MovieMateWithServer/build/static/css/main.790ceba0.chunk.css",
-  "main.js": "/MovieMateWithServer/build/static/js/main.d1828a35.chunk.js",
-  "main.js.map": "/MovieMateWithServer/build/static/js/main.d1828a35.chunk.js.map",
+  "main.css": "/MovieMateWithServer/build/static/css/main.7d89f8ca.chunk.css",
+  "main.js": "/MovieMateWithServer/build/static/js/main.04f32749.chunk.js",
+  "main.js.map": "/MovieMateWithServer/build/static/js/main.04f32749.chunk.js.map",
   "static/js/1.0b4a71fa.chunk.js": "/MovieMateWithServer/build/static/js/1.0b4a71fa.chunk.js",
   "static/js/1.0b4a71fa.chunk.js.map": "/MovieMateWithServer/build/static/js/1.0b4a71fa.chunk.js.map",
   "runtime~main.js": "/MovieMateWithServer/build/static/js/runtime~main.9110377c.js",
   "runtime~main.js.map": "/MovieMateWithServer/build/static/js/runtime~main.9110377c.js.map",
-  "static/css/main.790ceba0.chunk.css.map": "/MovieMateWithServer/build/static/css/main.790ceba0.chunk.css.map",
+  "static/css/main.7d89f8ca.chunk.css.map": "/MovieMateWithServer/build/static/css/main.7d89f8ca.chunk.css.map",
   "index.html": "/MovieMateWithServer/build/index.html",
-  "precache-manifest.fc47b2713bfa242193a3ad49c998319e.js": "/MovieMateWithServer/build/precache-manifest.fc47b2713bfa242193a3ad49c998319e.js",
+  "precache-manifest.a4ca7a1dc4efab1d871ce8d792ac1286.js": "/MovieMateWithServer/build/precache-manifest.a4ca7a1dc4efab1d871ce8d792ac1286.js",
   "service-worker.js": "/MovieMateWithServer/build/service-worker.js"
 }

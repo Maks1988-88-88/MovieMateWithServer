@@ -87,7 +87,7 @@ class AppBody extends React.Component {
           poster_path:
             "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + film.poster_path
         }));
-        console.log(films.length);
+        // console.log(films.length);
         this.setState({
           post: films
         });
@@ -132,30 +132,48 @@ class AppBody extends React.Component {
 
   render() {
     const { post } = this.state;
-    return (
-      <div className="App__body">
-        {/* <MovieForm onFormSubmit={this.onAddNewPost} /> */}
-        <AppSidebar
-          Categories__btn={this.SearchCategories__btn}
-          SearchForm__input2={this.SearchForm__input}
-        />
-        <MovieCardCollection>
-          {post.map(post => (
-            <MovieCard
-              img={post.poster_path}
-              tittle={post.tittle}
-              descr={post.descr}
-              rating={post.rating}
-              key={post.id}
-              release_date={post.release_date}
-              onClick={() => {
-                this.onDeleteCard(post.id);
-              }}
-            />
-          ))}
-        </MovieCardCollection>
-      </div>
-    );
+    console.log(post.length);
+    if (post.length > 0) {
+      return (
+        <div className="App__body">
+          {/* <MovieForm onFormSubmit={this.onAddNewPost} /> */}
+          <AppSidebar
+            Categories__btn={this.SearchCategories__btn}
+            SearchForm__input2={this.SearchForm__input}
+          />
+          <MovieCardCollection>
+            {post.map(post => (
+              <MovieCard
+                img={post.poster_path}
+                tittle={post.tittle}
+                descr={post.descr}
+                rating={post.rating}
+                key={post.id}
+                release_date={post.release_date}
+                onClick={() => {
+                  this.onDeleteCard(post.id);
+                }}
+              />
+            ))}
+          </MovieCardCollection>
+        </div>
+      );}
+      else {
+         return (
+           <div className="App__body">
+             {/* <MovieForm onFormSubmit={this.onAddNewPost} /> */}
+             <AppSidebar
+               Categories__btn={this.SearchCategories__btn}
+               SearchForm__input2={this.SearchForm__input}
+             />
+             <MovieCardCollection>
+               <p className="MovieCardCollection__msg">
+                 sorry, we did't find anything
+               </p>
+             </MovieCardCollection>
+           </div>
+         );
+      }
   }
 }
 
