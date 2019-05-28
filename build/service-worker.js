@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/MovieMateWithServer/build/precache-manifest.a4ca7a1dc4efab1d871ce8d792ac1286.js"
+  "/MovieMateWithServer/build/precache-manifest.7c2561c52ae1cb9608a8bf0c0760bcb5.js"
 );
 
 workbox.clientsClaim();
