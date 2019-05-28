@@ -5,10 +5,13 @@ import "./style.css";
 import MovieCard from "../MovieCard";
 import MovieCardCollection from "../MovieCardCollection";
 import AppSidebar from "../AppSidebar";
+import WatchlistCard from "../WatchlistCard";
 
 class AppBody extends React.Component {
   state = {
-    post: []
+    post: [],
+    watchList: JSON.parse(localStorage.getItem("movie-mate-watchlist")) || [],
+    checkId: []
   };
 
   SearchCategories__btn = query => {
@@ -24,7 +27,7 @@ class AppBody extends React.Component {
       .then(data => {
         const films = data.results.map(film => ({
           id: film.id,
-          release_date: film.release_date,
+          release_date: film.release_date.slice(0, 4),
           descr: film.overview.slice(0, 100) + "...",
           tittle: film.title,
           rating: film.vote_average,
@@ -39,7 +42,6 @@ class AppBody extends React.Component {
   };
 
   SearchForm__input = query => {
-    console.log(query);
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=680d1c453082be4c031bb516ed6208df&page=1&query=${query}&include_adult=false`
     )
@@ -52,7 +54,7 @@ class AppBody extends React.Component {
       .then(data => {
         const films = data.results.map(film => ({
           id: film.id,
-          release_date: film.release_date,
+          release_date: film.release_date.slice(0, 4),
           descr: film.overview.slice(0, 100) + "...",
           tittle: film.title,
           rating: film.vote_average,
@@ -68,7 +70,7 @@ class AppBody extends React.Component {
 
   componentWillMount() {
     fetch(
-      "https://api.themoviedb.org/3/search/movie?api_key=680d1c453082be4c031bb516ed6208df&page=1&query=1&include_adult=false"
+      "https://api.themoviedb.org/3/movie/popular?api_key=680d1c453082be4c031bb516ed6208df&page=1&query=1&include_adult=false"
     )
       .then(response => {
         if (response.ok) {
@@ -77,10 +79,9 @@ class AppBody extends React.Component {
         throw new Error("Error" + response.statusText);
       })
       .then(data => {
-        
         const films = data.results.map(film => ({
           id: film.id,
-          release_date: film.release_date,
+          release_date: film.release_date.slice(0, 4),
           descr: film.overview.slice(0, 100) + "...",
           tittle: film.title,
           rating: film.vote_average,
@@ -107,40 +108,64 @@ class AppBody extends React.Component {
   //   .catch (err => console.error(err));
   // }
 
-  // onAddNewPost = (tittle, descr, rating) => {
-  //   const newPost = {
-  //     id: v4(),
-  //     chipsList: [],
-  //     descr: descr,
-  //     rating: rating,
-  //     tittle: tittle
-  //   };
-  //   console.log(newPost);
-  //   this.setState({
-  //     post: [...this.state.post, newPost]
-  //   });
-  // };
-
-  onDeleteCard = id => {
-    console.log(id);
+  onAddWatchlist = (id, rating, poster_path, tittle, release_date) => {
+    const newWatchList = {
+      id: id,
+      rating: rating,
+      poster_path: poster_path,
+      tittle: tittle,
+      release_date: release_date
+    };
+    const newId = id;
     this.setState({
-      post: this.state.post.filter(currentPost => currentPost.id !== id)
+      checkId: [...this.state.checkId, newId]
+    });
+    const { checkId } = this.state;
+    if (!checkId.includes(id)) {
+      this.setState({
+        watchList: [...this.state.watchList, newWatchList]
+      });
+    }
+  };
+
+  onDeleteWatchlist = id => {
+    this.setState({
+      watchList: this.state.watchList.filter(
+        currentPost => currentPost.id !== id
+      ),
+      checkId: this.state.checkId.filter(
+        currentcheckId => currentcheckId !== id
+      )
     });
   };
 
-  // SearchSearchForm__input = value => console.log(value);
-
   render() {
-    const { post } = this.state;
-    console.log(post.length);
+    const { post, watchList } = this.state;
+    localStorage.setItem(
+      "movie-mate-watchlist",
+      JSON.stringify(this.state.watchList)
+    );
     if (post.length > 0) {
       return (
         <div className="App__body">
-          {/* <MovieForm onFormSubmit={this.onAddNewPost} /> */}
           <AppSidebar
             Categories__btn={this.SearchCategories__btn}
-            SearchForm__input2={this.SearchForm__input}
-          />
+            SearchForm={this.SearchForm__input}
+          >
+            {watchList.map(watchList => (
+              <WatchlistCard
+                img={watchList.poster_path}
+                tittle={watchList.tittle}
+                rating={watchList.rating}
+                key={watchList.id}
+                release_date={watchList.release_date}
+                onClick={() => {
+                  this.onDeleteWatchlist(watchList.id);
+                }}
+              />
+            ))}
+          </AppSidebar>
+
           <MovieCardCollection>
             {post.map(post => (
               <MovieCard
@@ -150,30 +175,48 @@ class AppBody extends React.Component {
                 rating={post.rating}
                 key={post.id}
                 release_date={post.release_date}
-                onClick={() => {
-                  this.onDeleteCard(post.id);
+                onClickAddWatchlist={() => {
+                  this.onAddWatchlist(
+                    post.id,
+                    post.rating,
+                    post.poster_path,
+                    post.tittle,
+                    post.release_date
+                  );
                 }}
               />
             ))}
           </MovieCardCollection>
         </div>
-      );}
-      else {
-         return (
-           <div className="App__body">
-             {/* <MovieForm onFormSubmit={this.onAddNewPost} /> */}
-             <AppSidebar
-               Categories__btn={this.SearchCategories__btn}
-               SearchForm__input2={this.SearchForm__input}
-             />
-             <MovieCardCollection>
-               <p className="MovieCardCollection__msg">
-                 sorry, we did't find anything
-               </p>
-             </MovieCardCollection>
-           </div>
-         );
-      }
+      );
+    } else {
+      return (
+        <div className="App__body">
+          <AppSidebar
+            Categories__btn={this.SearchCategories__btn}
+            SearchForm={this.SearchForm__input}
+          >
+            {watchList.map(watchList => (
+              <WatchlistCard
+                img={watchList.poster_path}
+                tittle={watchList.tittle}
+                rating={watchList.rating}
+                key={watchList.id}
+                release_date={watchList.release_date}
+                onClick={() => {
+                  this.onDeleteWatchlist(watchList.id);
+                }}
+              />
+            ))}
+          </AppSidebar>
+          <MovieCardCollection>
+            <p className="MovieCardCollection__msg">
+              sorry, we did't find anything
+            </p>
+          </MovieCardCollection>
+        </div>
+      );
+    }
   }
 }
 

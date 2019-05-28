@@ -9,7 +9,8 @@ class MovieCard extends React.Component {
       tittle,
       descr,
       rating,
-      onClick,
+      onClickAddWatchlist,
+      // onClick,
       img,
       release_date
     } = this.props;
@@ -22,9 +23,15 @@ class MovieCard extends React.Component {
           <p className="MovieInfo__descr">{descr} </p>
           <p className="MovieInfo__release">Release date: {release_date}</p>
         </div>
-        <button className="MovieCard__btn " onClick={onClick}>
+        <button
+          className="MovieCard__btn "
+          onClick={onClickAddWatchlist}
+        >
           +
         </button>
+        {/* <button className="MovieCard__btn " onClick={onClick}>
+          +
+        </button> */}
       </div>
     );
   }
@@ -34,7 +41,7 @@ MovieCard.propTypes = {
   tittle: PropTypes.string.isRequired,
   descr: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
+  // onClick: PropTypes.func.isRequired,
   img: PropTypes.string.isRequired,
   release_date: PropTypes.string.isRequired
 };
