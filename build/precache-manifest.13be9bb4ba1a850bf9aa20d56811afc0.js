@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/MovieMateWithServer/build/static/js/runtime~main.9110377c.js"
   },
   {
-    "revision": "4db202ac5f3249c6a020",
-    "url": "/MovieMateWithServer/build/static/js/main.4db202ac.chunk.js"
+    "revision": "c5e55148b3a772bf6e3f",
+    "url": "/MovieMateWithServer/build/static/js/main.c5e55148.chunk.js"
   },
   {
     "revision": "baaf5e9c1a07555c907f",
     "url": "/MovieMateWithServer/build/static/js/1.baaf5e9c.chunk.js"
   },
   {
-    "revision": "4db202ac5f3249c6a020",
-    "url": "/MovieMateWithServer/build/static/css/main.768b7569.chunk.css"
+    "revision": "c5e55148b3a772bf6e3f",
+    "url": "/MovieMateWithServer/build/static/css/main.3e65a8ff.chunk.css"
   },
   {
-    "revision": "5decf8dbc9124064e3d401f162f9160d",
+    "revision": "fe612281cab87f124746ed93762bf66c",
     "url": "/MovieMateWithServer/build/index.html"
   }
 ];

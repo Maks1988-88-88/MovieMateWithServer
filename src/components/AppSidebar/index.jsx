@@ -58,21 +58,21 @@ class AppSidebar extends React.Component {
         </form>
         <div className="SearchCategories">
           <button
-            className="SearchCategories__btn"
+            className="SearchCategories__btn SearchCategories__btn--active"
             name="popular"
             onClick={this._searchValues}
           >
             popular
           </button>
           <button
-            className="SearchCategories__btn"
+            className="SearchCategories__btn SearchCategories__btn--active"
             name="top_rated"
             onClick={this._searchValues}
           >
             top rated
           </button>
           <button
-            className="SearchCategories__btn"
+            className="SearchCategories__btn SearchCategories__btn--active"
             name="upcoming"
             onClick={this._searchValues}
           >
