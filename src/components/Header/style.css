@@ -1,3 +1,4 @@
+
 .Header {
     display: -ms-flexbox;
     display: flex;
@@ -10,9 +11,10 @@
     border-bottom: 4px solid #424242;
 }
 
-.Header__logo {
+.Header__logo a {
     color: #424242;
     text-transform: capitalize;
+    text-decoration: none;
 }
 
 .Navigation {
@@ -36,7 +38,7 @@
     font-size: 20px;
 }
 
-.Navigation__link:after {
+/* .Navigation__link:after {
     position: absolute;
     top: 47px;
     left: 0;
@@ -47,7 +49,7 @@
     -webkit-transition: width .3s linear;
     -o-transition: width .3s linear;
     transition: width .3s linear;
-}
+} */
 
 .Navigation__link:hover:after {
     width: 100%;
@@ -57,3 +59,5 @@
 .Navigation__link:hover {
     color: #ff5722;
 }
+
+
