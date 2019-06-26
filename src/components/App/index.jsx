@@ -4,6 +4,7 @@ import "./style.css";
 import Header from "../Header/index";
 import Movies from "../AppBody/index";
 import Home from "../Home";
+import AboutPage from "../AboutPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 
@@ -31,7 +32,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} /> />
           <Route path="/movies" component={Movies} />
-          <Route path="/about" render={() => <h2>About page</h2>} />
+          <Route path="/about" component={AboutPage} />
           <Redirect to="/" />
         </Switch>
       </div>

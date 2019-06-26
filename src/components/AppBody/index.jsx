@@ -1,6 +1,4 @@
 import React from "react";
-// import v4 from "uuid/v4";
-// import posts from "../../posts";
 import "./style.css";
 import MovieCard from "../MovieCard";
 import MovieCardCollection from "../MovieCardCollection";

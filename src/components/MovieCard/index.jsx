@@ -1,5 +1,4 @@
 import React from "react";
-// import v4 from "uuid/v4";
 import "./style.css";
 import PropTypes from "prop-types";
 
@@ -10,7 +9,6 @@ class MovieCard extends React.Component {
       descr,
       rating,
       onClickAddWatchlist,
-      // onClick,
       img,
       release_date
     } = this.props;
@@ -29,9 +27,6 @@ class MovieCard extends React.Component {
         >
           +
         </button>
-        {/* <button className="MovieCard__btn " onClick={onClick}>
-          +
-        </button> */}
       </div>
     );
   }
@@ -41,7 +36,6 @@ MovieCard.propTypes = {
   tittle: PropTypes.string.isRequired,
   descr: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
-  // onClick: PropTypes.func.isRequired,
   img: PropTypes.string.isRequired,
   release_date: PropTypes.string.isRequired
 };

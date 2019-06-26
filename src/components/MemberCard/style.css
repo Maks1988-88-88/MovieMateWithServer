@@ -1,0 +1,50 @@
+.MemberCard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 6px solid #424242;
+}
+
+.MemberCard::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.MemberCard__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.MemberCard__info {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+}
+
+.MemberCard__name {
+    margin-bottom: 16px;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.MemberCard__name::after {
+    display: block;
+    content: "";
+    margin: auto;
+    margin-top: 8px;
+    width: 50%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.MemberCard__pos {
+    font-size: 30px;
+}

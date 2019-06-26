@@ -1,5 +1,4 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import homePic from './assets/clapperboard.2e065d52.svg';
 import "./style.css";
@@ -16,14 +15,16 @@ const Home = () => {
       </p>
       <p className="Home__text">
         If you wish to learn more about Movie Mate visit{" "}
-        <Link exact to="/about" className="Home__link">
+        {/* <Link exact to="/about" className="Home__link"> */}
+        <Link to="/about" className="Home__link">
           About Page
         </Link>
         .
       </p>
       <p className="Home__text">
         Or start browsing right now in{" "}
-        <Link exact to="/movies" className="Home__link">
+        {/* <Link exact to="/movies" className="Home__link"> */}
+        <Link to="/movies" className="Home__link">
           Movie Gallery
         </Link>
         .

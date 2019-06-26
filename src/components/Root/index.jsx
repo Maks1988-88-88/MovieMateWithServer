@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "../App";
 
 const Root = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/MovieMateWithServer/build">
     <App />
   </BrowserRouter>
 );
